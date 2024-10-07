@@ -7,6 +7,7 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
+import { TooltipProvider } from "@radix-ui/react-tooltip";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,28 +23,40 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <NavigationMenu className="nav-bar fixed m-2 left-1/2 transform -translate-x-1/2 p-2 border-2 rounded-full border-slate-400 backdrop-blur-sm overflow-hidden">
-          <NavigationMenuList className="flex m-2 gap-2">
-            <NavigationMenuItem className="w-24 text-center">
-              <Link href="#hello">Hello</Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem className="w-24 text-center">
-              <Link href="#skills">Skills</Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem className="w-24 text-center">
-              <Link href="#experience">Experience</Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem className="w-24 text-center">
-              <Link href="#education">Education</Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem className="w-24 text-center">
-              <Link href="#contact">Contact</Link>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-        {children}
-      </body>
+      <TooltipProvider>
+        <body className={inter.className}>
+          <NavigationMenu className="nav-bar fixed m-2 left-1/2 transform -translate-x-1/2 border-2 rounded-full border-slate-400 backdrop-blur-sm overflow-hidden">
+            <NavigationMenuList className="flex gap-2">
+              <NavigationMenuItem className="w-24 text-center">
+                <Link href="#hello" className="block p-4">
+                  Hello
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem className="w-24 text-center">
+                <Link href="#skills" className="block p-4">
+                  Skills
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem className="w-24 text-center">
+                <Link href="#experience" className="block">
+                  Experience
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem className="w-24 text-center">
+                <Link href="#education" className="block">
+                  Education
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem className="w-24 text-center">
+                <Link href="#contact" className="block p-4">
+                  Contact
+                </Link>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+          {children}
+        </body>
+      </TooltipProvider>
     </html>
   );
 }

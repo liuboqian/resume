@@ -5,11 +5,15 @@
 body {
   color: white;
   background-color: var(--background-color);
-  animation: background 2s linear;
+  animation: background-change 2s linear;
   animation-timeline: scroll(y);
 }
 
-@keyframes background {
+h1 {
+  font-size: xx-large;
+}
+
+@keyframes background-change {
   from {
     background-color: #00000069;
   }
@@ -71,9 +75,6 @@ section {
     --border: #000000;
     color: white;
   }
-}
-
-#skills {
 }
 
 @layer base {
@@ -141,9 +142,9 @@ section {
   }
 }
 
-.nav-bar{
-  &:before{
-    content: '';
+.nav-bar {
+  &:before {
+    content: "";
     width: 20%;
     position: absolute;
     background: rgba(135, 207, 235, 0.3);
@@ -168,18 +169,18 @@ section {
   mask: linear-gradient(to right, #fff 0%, transparent 100%);
 }
 
-.slide-in{
-  animation: slide-in 2s linear,
-        slide-out 2s linear;
+.slide-in {
+  animation:
+    slide-in 2s linear,
+    slide-out 2s linear;
   animation-timeline: view();
-  animation-range: entry, exit;
+  animation-range:
+    entry 0 30%,
+    exit 80% 100%;
 }
 
 @keyframes slide-in {
   from {
-    transform: translateX(-100%);
-  }
-  50%{
     transform: translateX(-100%);
   }
   to {
@@ -190,10 +191,35 @@ section {
   from {
     transform: translateX(0);
   }
-  50%{
-    transform: translateX(0);
-  }
   to {
     transform: translateX(-100%);
+  }
+}
+
+.email {
+  background: linear-gradient(
+      to right,
+      rgba(252, 255, 215, 0) 0%,
+      rgba(251, 247, 2, 0.712) 20%,
+      rgba(255, 255, 255, 0) 61%
+    ),
+    linear-gradient(
+      rgba(186, 220, 234, 0.685) 0%,
+      rgb(97, 183, 217) 52%,
+      rgb(224, 246, 255) 60%,
+      rgba(98, 88, 184, 0.692) 61%
+    );
+  background-clip: text;
+  animation: wave 2s ease-in-out alternate infinite;
+  -webkit-text-fill-color: transparent;
+  line-height: 24px;
+}
+
+@keyframes wave {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50vw 10px;
   }
 }
