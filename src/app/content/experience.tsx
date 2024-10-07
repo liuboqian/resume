@@ -8,7 +8,7 @@ const ExperiencePage = () => {
   return (
     <section
       id="experience"
-      className="h-screen snap-start flex flex-col items-stretch p-8 overflow-y-hidden"
+      className="h-screen snap-start flex flex-col items-stretch p-8 overflow-hidden"
     >
       <h2 className="text-4xl font-semibold m-16 mb-4 text-center">
         Experience

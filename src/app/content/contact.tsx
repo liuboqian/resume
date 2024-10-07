@@ -16,10 +16,15 @@ const Contact = () => {
               liuboqian2015@outlook.com
             </a>
           </div>
-          <br />
           <div className="p-4 text-2xl">
             <b>Cell Phone: </b>
             +86 17621379964
+          </div>
+          <div className="p-4 text-2xl">
+            <b>Github: </b>
+            <a href="https://github.com/liuboqian">
+              https://github.com/liuboqian
+            </a>
           </div>
         </div>
       </div>
