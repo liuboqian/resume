@@ -7,6 +7,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
@@ -26,9 +29,9 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: 
-            - liubbqq/boqian-resume:${{ github.run_id }}
-            - liubbqq/boqian-resume:latest
+          tags: |
+            liubbqq/boqian-resume:${{ github.run_id }}
+            liubbqq/boqian-resume:latest
 
   deploy:
     runs-on: ubuntu-latest
