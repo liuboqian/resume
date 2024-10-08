@@ -11,7 +11,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
       - name: Set up QEMU
@@ -61,6 +60,5 @@ jobs:
           slot-name: 'Production'
           images: 'liubbqq/boqian-resume:${{ github.run_id }}'
           
-    - name: Azure logout
-      run: |
-        az logout
+      - name: Azure logout
+        run: az logout
