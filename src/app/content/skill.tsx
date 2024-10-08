@@ -74,6 +74,7 @@ const SkillPage = () => {
                   <Bullet level={2}>Web App</Bullet>
                   <Bullet level={2}>Key Vault</Bullet>
                   <Bullet level={2}>Log Analytics</Bullet>
+                  <Bullet level={2}>Application Gateway</Bullet>
                   <Bullet level={2}>Storage Account</Bullet>
                   <Bullet level={2}>Sql Server</Bullet>
                   <Bullet level={2}>Appliation Insights</Bullet>

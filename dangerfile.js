@@ -7,16 +7,7 @@ if (!danger.github.pr.assignee) {
     )
 }
 if (danger.github.pr.body.length < 10) {
-    fail('This pull request needs a description.')
-}
-if (
-    !danger.github.pr.title.match(
-        /^(?::\w*:|(?:(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])))\s(?<type>\w*)(?:\((?<scope>.*)\))?!?:\s(?<subject>(?:(?!#).)*(?:(?!\s).))(?:\s\(?(?<ticket>#\d*)\)?)?$/
-    )
-) {
-    fail(
-        "Title must contains gitmoji and type, like ':art:feat: implement create user'."
-    )
+  fail("This pull request needs a description.");
 }
 
 const { prHygiene } = require('danger-plugin-pr-hygiene')
