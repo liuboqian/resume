@@ -17,6 +17,7 @@ jobs:
         run: |
           echo "BUILDAT=$(date +%s)" >> ${GITHUB_ENV}
           sed -i -e 's/<development>/${{ github.run_id }}/g' -e 's/<buildat>/${{ env.BUILDAT }}/g' .env
+          head .env
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
