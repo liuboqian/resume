@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
+import version from "./version.json" with { type: "json" };
+
 const nextConfig = {
   output: "standalone",
   generateBuildId: async () => {
-    return process.env.GIT_HASH;
+    return version.AppVersion;
   },
   experimental: {
     instrumentationHook: true,

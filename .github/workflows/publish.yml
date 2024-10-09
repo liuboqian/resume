@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and push docker image - boqian-resume
+name: publish
 
 on:
   push:
@@ -13,11 +13,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: set version
+      - name: Set Environment
         run: |
-          echo "BUILDAT=$(date +%s)" >> ${GITHUB_ENV}
-          sed -i -e 's/<development>/${{ github.run_id }}/g' -e 's/<buildat>/${{ env.BUILDAT }}/g' .env
-          head .env
+          echo "APP_VERSION=${{github.run_id}}" >> "$GITHUB_ENV"
+          echo "BUILD_AT=$(date +%s)" >> "$GITHUB_ENV"
+      - name: Set APP_VERSION
+        env:
+          APP_VERSION: ${{ env.APP_VERSION }}
+          BUILD_AT: ${{ env.BUILD_AT }}
+        run: |
+          echo `jq '.AppVersion="${{ env.APP_VERSION }}"|.BuildAt=${{ env.BUILD_AT }}' version.json` > version.json
+          head version.json
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
@@ -30,6 +36,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
+          context: .   # mandatory, otherwise it will fetch from repo instead of using the current source
           push: true
           tags: |
             liubbqq/boqian-resume:${{ github.run_id }}

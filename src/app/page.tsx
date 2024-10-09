@@ -4,12 +4,11 @@ import ExperiencePage from "./content/experience";
 import HelloPage from "./content/hello";
 import SkillPage from "./content/skill";
 import DownloadButton from "./download-button";
-import { fromUnixTime, parse } from "date-fns";
+import { fromUnixTime } from "date-fns";
+import version from "@/../version.json";
 
 export default function Home() {
-  const date = fromUnixTime(
-    parseInt(process.env.BUILD_AT ?? "")
-  ).toDateString();
+  const date = fromUnixTime(version.BuildAt).toISOString();
   return (
     <main className="flex min-h-screen flex-col">
       <HelloPage />
@@ -19,7 +18,7 @@ export default function Home() {
       <Contact />
       <DownloadButton />
       <footer className="text-sm text-gray-400 relative bottom-1 float-left">
-        Version: {process.env.VERSION}
+        Version: {version.AppVersion}
         <br />
         Update At: {date}
       </footer>
