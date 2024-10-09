@@ -2,7 +2,7 @@
 const nextConfig = {
   output: "standalone",
   generateBuildId: async () => {
-    return process.env.GIT_HASH;
+    return process.env.APP_VERSION;
   },
   experimental: {
     instrumentationHook: true,

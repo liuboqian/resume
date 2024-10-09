@@ -19,7 +19,7 @@ export default function Home() {
       <Contact />
       <DownloadButton />
       <footer className="text-sm text-gray-400 relative bottom-1 float-left">
-        Version: {process.env.VERSION}
+        Version: {process.env.APP_VERSION}
         <br />
         Update At: {date}
       </footer>
