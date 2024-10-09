@@ -7,15 +7,16 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: set version
+        run: |
+          echo "BUILDAT=$(date +%s)" >> ${GITHUB_ENV}
+          sed -i -e 's/<development>/${{ github.run_id }}/g' -e 's/<buildat>/${{ env.BUILDAT }}' .env
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
