@@ -42,8 +42,8 @@ const SkillsBackground = ({ className }: { className: string }) => {
       <Image
         src="/echarts.png"
         alt="echarts"
-        width={128}
-        height={128}
+        width={643}
+        height={146}
         className="absolute h-auto w-32"
         style={{
           top: `20%`,
@@ -119,8 +119,8 @@ const SkillsBackground = ({ className }: { className: string }) => {
       <Image
         src="/azuredevops.png"
         alt="azure devops"
-        width={128}
-        height={128}
+        width={689}
+        height={392}
         className="absolute h-auto w-32"
         style={{
           top: `72%`,

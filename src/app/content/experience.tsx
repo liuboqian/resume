@@ -2,19 +2,20 @@
 import React, { useState } from "react";
 import Bullet from "./bullet";
 import AnimeCard from "./anime-card";
+import clsx from "clsx";
 
 const ExperiencePage = () => {
   const [currentHover, setHover] = useState("elekta");
   return (
     <section
       id="experience"
-      className="h-screen snap-start flex flex-col items-stretch p-8 overflow-hidden"
+      className="h-screen snap-start flex flex-col items-stretch p-8 overflow-visible"
     >
-      <h2 className="text-4xl font-semibold m-16 mb-4 text-center">
+      <h2 className="text-4xl font-semibold m-16 mb-2 text-center">
         Experience
       </h2>
       <div
-        className="flex-auto flex flex-row"
+        className="flex-auto flex items-center relative overflow-hidden -m-16 p-16"
         style={{
           transformStyle: "preserve-3d",
           perspective: "50rem",
@@ -25,6 +26,10 @@ const ExperiencePage = () => {
           header="Elekta"
           description="From 2020 to now"
           state={currentHover === "elekta" ? "center" : "left"}
+          className={clsx("absolute", {
+            "w-2/3 h-4/5": currentHover === "elekta",
+            "w-1/3 h-full -left-[2%]": currentHover !== "elekta",
+          })}
           onFocus={(id) => setHover(id)}
         >
           <Bullet>
@@ -65,13 +70,19 @@ const ExperiencePage = () => {
                 ? "right"
                 : "left"
           }
+          className={clsx("absolute", {
+            "w-1/3 h-full left-[62%] z-10": currentHover === "elekta",
+            "w-2/3 h-4/5 left-[20%]": currentHover === "aspen",
+            "w-1/3 h-full left-[5%] z-10": currentHover === "school",
+          })}
           onFocus={(id) => setHover(id)}
         >
           <Bullet>
-            Develop an Angular project with echarts, maintain a small react
-            project.
+            Develop an Angular project, contains data visualization with
+            echarts.
           </Bullet>
-          <Bullet>Develop a WPF project.</Bullet>
+          <Bullet>Maintain a small legacy react project.</Bullet>
+          <Bullet>Develop on a complex WPF project.</Bullet>
           <Bullet>
             Petroleum process simulation using Aspen Plus and Aspen Hysys.
           </Bullet>
@@ -81,14 +92,31 @@ const ExperiencePage = () => {
           header="At School"
           description="From 2010 to 2017"
           state={currentHover === "school" ? "center" : "right"}
+          className={clsx("absolute", {
+            "w-1/3 h-full left-[75%]": currentHover !== "scroll",
+            "w-2/3 h-4/5 left-[25%]": currentHover === "school",
+          })}
           onFocus={(id) => setHover(id)}
         >
           <Bullet>
             CAPEOPEN Basic Class Library, a COM compatible library, with 3
-            examples
+            examples. Check here:
+            <a
+              className={clsx("text-blue-500 underline", {
+                "pointer-events-none": currentHover !== "school",
+              })}
+              href="https://github.com/liuboqian/CasterUnitCore"
+            >
+              CasterUnitCore
+            </a>
           </Bullet>
           <Bullet>
-            Develop chemical reactor module, mainly work on numeric algorithm.
+            Develop chemical reactor modules using MFC, mainly work on numeric
+            algorithm.
+          </Bullet>
+          <Bullet>
+            Process simulation for a real world petroleum plant equipment in
+            Shandong, analyze result and provide evaluation report.
           </Bullet>
         </AnimeCard>
       </div>

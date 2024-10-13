@@ -15,14 +15,14 @@ const SkillPage = () => {
       id="skills"
       className="h-screen snap-start p-0 items-stretch justify-center relative"
     >
-      <SkillsBackground className="absolute w-2/3 h-full top-0 left-0 slide-in" />
-      <h1 className="absolute top-24 left-1/4 text-white text-bolder text-4xl">
+      <SkillsBackground className="absolute w-full md:w-2/3 h-full top-0 left-0 slide-in opacity-30 md:opacity-100" />
+      <h1 className="absolute top-24 left-2 md:left-1/4 text-white text-bolder text-4xl">
         Skills
       </h1>
       <Accordion
         type="single"
         collapsible
-        className="md:absolute w-1/2 md:left-1/2 sm:left-2 p-24"
+        className="absolute w-full md:w-1/2 pt-48 md:pt-24 left-2 md:left-1/2 overflow-auto max-h-full"
         defaultValue="frontend"
       >
         <AccordionItem value="frontend">
@@ -69,9 +69,16 @@ const SkillPage = () => {
             <ul>
               <Bullet>Agile development process with Azure DevOps</Bullet>
               <Bullet>
+                Azure DevOps CI/CD pipeline, also acquaintant with Github
+                Actions
+              </Bullet>
+              <Bullet>
+                Docker and Kubernetes experience on personal projects
+              </Bullet>
+              <Bullet>
                 Azure services, familiar with
                 <ul>
-                  <Bullet level={2}>Web App</Bullet>
+                  <Bullet level={2}>App Service</Bullet>
                   <Bullet level={2}>Key Vault</Bullet>
                   <Bullet level={2}>Log Analytics</Bullet>
                   <Bullet level={2}>Application Gateway</Bullet>
