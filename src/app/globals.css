@@ -176,8 +176,8 @@ section {
     slide-out 2s linear;
   animation-timeline: view();
   animation-range:
-    entry 0 30%,
-    exit 80% 100%;
+    entry 0 40%,
+    exit 70% 100%;
 }
 
 @keyframes slide-in {
