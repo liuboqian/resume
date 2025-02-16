@@ -127,6 +127,19 @@ const SkillPage = () => {
             </ul>
           </AccordionContent>
         </AccordionItem>
+        <AccordionItem value="others">
+          <AccordionTrigger>Others</AccordionTrigger>
+          <AccordionContent className="m-2">
+            <ul>
+              <Bullet>
+                Personal interest in AI agent. Have experience of building agent
+                to query and modify data.
+              </Bullet>
+              <Bullet>Understand DICOM.</Bullet>
+              <Bullet>Have experience in process simulation.</Bullet>
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
       </Accordion>
     </section>
   );
