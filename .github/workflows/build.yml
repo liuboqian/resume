@@ -16,17 +16,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-      - name: Use Latest Corepack
-        run: |
-          echo "Before: corepack version => $(corepack --version || echo 'not installed')"
-          npm install -g corepack@latest
-          echo "After : corepack version => $(corepack --version)"
-          corepack enable
-          pnpm --version
       - name: Setup pnpm
         uses: pnpm/action-setup@v4.0.0
       - name: Install packages
-        run: pnpm install -g danger
+        run: pnpm install -g danger danger-plugin-pr-hygiene danger-plugin-spellcheck
       - name: Run danger.js
         run: pnpm danger ci
         env:
